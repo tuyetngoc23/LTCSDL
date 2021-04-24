@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_DonHang.cs" />
+    <Compile Include="CTDH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CTDH.Designer.cs">
+      <DependentUpon>CTDH.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO_DonHang.cs" />
     <Compile Include="FDonHang.cs">
       <SubType>Form</SubType>
@@ -82,6 +88,9 @@
     <None Include="NW.dbml.layout">
       <DependentUpon>NW.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="CTDH.resx">
+      <DependentUpon>CTDH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FDonHang.resx">
       <DependentUpon>FDonHang.cs</DependentUpon>
     </EmbeddedResource>

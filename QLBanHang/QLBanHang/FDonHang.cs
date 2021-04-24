@@ -23,6 +23,11 @@ namespace QLBanHang
             busDH.LayDSDH(gVDH);
             busDH.LayDSKH(cbKhachHang);
             busDH.LayDSNV(cbNhanVien);
+            chinhDep();
+        }
+
+        public void chinhDep()
+        {
             gVDH.Columns[0].Width = (int)(gVDH.Width * 0.15);
             gVDH.Columns[1].Width = (int)(gVDH.Width * 0.2);
             gVDH.Columns[2].Width = (int)(gVDH.Width * 0.2);
@@ -43,8 +48,35 @@ namespace QLBanHang
 
         private void btThem_Click(object sender, EventArgs e)
         {
-
+            Order d = new Order();
+            d.OrderDate = dtpNgayDH.Value;
+            d.CustomerID = cbKhachHang.SelectedValue.ToString();
+            d.EmployeeID = int.Parse(cbNhanVien.SelectedValue.ToString());
+            busDH.ThemDonHang(d);
+            gVDH.Columns.Clear();
+            busDH.LayDSDH(gVDH);
+            chinhDep();
         }
 
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            Order d = new Order();
+            d.OrderID = int.Parse(txtMaDH.Text);
+            d.OrderDate = dtpNgayDH.Value;
+            d.CustomerID = cbKhachHang.SelectedValue.ToString();
+            d.EmployeeID = int.Parse(cbNhanVien.SelectedValue.ToString());
+            busDH.SuaDH(d);
+            gVDH.Columns.Clear();
+            busDH.LayDSDH(gVDH);
+            chinhDep();
+        }
+
+        private void gVDH_DoubleClick(object sender, EventArgs e)
+        {
+            int maDH = int.Parse(gVDH.CurrentRow.Cells["OrderID"].Value.ToString());
+            CTDH c = new CTDH();
+            c.maDH = maDH;
+            c.ShowDialog();
+        }
     }
 }

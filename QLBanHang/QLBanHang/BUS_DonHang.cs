@@ -29,5 +29,31 @@ namespace QLBanHang
             cb.DisplayMember = "LastName";
             cb.ValueMember = "EmployeeID";
         }
+
+        public void ThemDonHang(Order donHang)
+        {
+            try
+            {
+                daoDH.ThemDH(donHang);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void SuaDH(Order donHang)
+        {
+            if (daoDH.SuaDH(donHang))
+                MessageBox.Show("success!!!");
+            else
+                MessageBox.Show("failed!!!");
+        }
+
+        public void LayCTDH(DataGridView dg, int maDH)
+        {
+            dg.DataSource = daoDH.LayCTDH(maDH);
+        }
     }
 }

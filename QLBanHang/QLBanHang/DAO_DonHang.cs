@@ -55,9 +55,43 @@ namespace QLBanHang
             return dsNV;
         }
 
-        public void ThemDH()
+        public void ThemDH(Order donHang)
         {
-            
+            db.Orders.InsertOnSubmit(donHang);
+            db.SubmitChanges();
+        }
+
+        public bool SuaDH(Order donHang)
+        {
+            bool trangThai = false;
+            try
+            {
+                Order d = new Order();
+                d = db.Orders.First(s => s.OrderID == donHang.OrderID);
+                trangThai = true;
+                d.OrderID = donHang.OrderID;
+                d.OrderDate = donHang.OrderDate;
+                d.CustomerID = donHang.CustomerID;
+                d.EmployeeID = donHang.EmployeeID;
+                db.SubmitChanges();
+                return trangThai;
+            }
+            catch (Exception)
+            {
+                ;//xu ly loi
+            }
+            return trangThai;
+        }
+
+        public dynamic LayCTDH(int maDH)
+        {
+            var ds = db.Order_Details.Where(s => s.OrderID == maDH).Select(s => new { 
+                                                      s.OrderID,
+                                                      s.Product.ProductName,
+                                                      s.UnitPrice,
+                                                      s.Quantity
+                                                     });
+            return ds;
         }
     }
 }
