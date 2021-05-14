@@ -42,5 +42,10 @@ namespace QLBanHang
                 txtSoLuong.Text = gVCTDH.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
             }
         }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

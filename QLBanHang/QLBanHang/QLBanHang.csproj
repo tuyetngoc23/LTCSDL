@@ -61,6 +61,12 @@
     <Compile Include="FDonHang.Designer.cs">
       <DependentUpon>FDonHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDatHang.Designer.cs">
+      <DependentUpon>FDatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="NorthwindDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FDonHang.resx">
       <DependentUpon>FDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDatHang.resx">
+      <DependentUpon>FDatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

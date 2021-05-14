@@ -27,11 +27,10 @@ namespace QLBanHang
         public dynamic LayDSDH3()
         {
             dynamic dsDH = db.Orders.Select(s => new
-            {
+                                        {
                                         s.OrderID,
                                         s.OrderDate,
                                         s.Customer.CompanyName,
-                                        s.Employee.EmployeeID,
                                         s.Employee.LastName
                                         });
             return dsDH;
@@ -81,6 +80,14 @@ namespace QLBanHang
                 ;//xu ly loi
             }
             return trangThai;
+        }
+
+        public void XoaDH(String maDH)
+        {
+            Order d = new Order();
+            d = db.Orders.First(s => s.OrderID == int.Parse(maDH));
+            db.Orders.DeleteOnSubmit(d);
+            db.SubmitChanges();
         }
 
         public dynamic LayCTDH(int maDH)

@@ -28,11 +28,10 @@ namespace QLBanHang
 
         public void chinhDep()
         {
-            gVDH.Columns[0].Width = (int)(gVDH.Width * 0.15);
-            gVDH.Columns[1].Width = (int)(gVDH.Width * 0.2);
-            gVDH.Columns[2].Width = (int)(gVDH.Width * 0.2);
-            gVDH.Columns[3].Width = (int)(gVDH.Width * 0.2);
-            gVDH.Columns[4].Width = (int)(gVDH.Width * 0.2);
+            gVDH.Columns[0].Width = (int)(gVDH.Width * 0.2);
+            gVDH.Columns[1].Width = (int)(gVDH.Width * 0.25);
+            gVDH.Columns[2].Width = (int)(gVDH.Width * 0.25);
+            gVDH.Columns[3].Width = (int)(gVDH.Width * 0.25);
         }
 
         private void gVDH_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -77,6 +76,28 @@ namespace QLBanHang
             CTDH c = new CTDH();
             c.maDH = maDH;
             c.ShowDialog();
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            
+            busDH.XoaDH(gVDH.Rows[gVDH.CurrentRow.Index].Cells["OrderID"].Value.ToString());
+            gVDH.Columns.Clear();
+            busDH.LayDSDH(gVDH);
+            chinhDep();
+        }
+        
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btThemCTDH_Click(object sender, EventArgs e)
+        {
+            int maDH = int.Parse(gVDH.CurrentRow.Cells["OrderID"].Value.ToString());
+            FDatHang fDatHang = new FDatHang();
+            fDatHang.maDH = maDH;
+            fDatHang.ShowDialog();
         }
     }
 }

@@ -50,6 +50,19 @@ namespace QLBanHang
             else
                 MessageBox.Show("failed!!!");
         }
+        public void XoaDH(String maDH)
+        {
+            try
+            {
+                daoDH.XoaDH(maDH);
+                MessageBox.Show("success!!!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         public void LayCTDH(DataGridView dg, int maDH)
         {
