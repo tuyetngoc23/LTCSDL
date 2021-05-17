@@ -9,9 +9,11 @@ namespace QLBanHang
     class BUS_DonHang
     {
         DAO_DonHang daoDH;
+        DAO_SanPham daoSP;
         public BUS_DonHang()
         {
             daoDH = new DAO_DonHang();
+            daoSP = new DAO_SanPham();
         }
         public void LayDSDH(DataGridView dg)
         {
@@ -67,6 +69,19 @@ namespace QLBanHang
         public void LayCTDH(DataGridView dg, int maDH)
         {
             dg.DataSource = daoDH.LayCTDH(maDH);
+        }
+
+        public void LayDSSP(ComboBox cb)
+        {
+            cb.DataSource = daoSP.LayDSSP();
+            cb.DisplayMember = "ProductName";
+            cb.ValueMember = "ProductID";
+        }
+
+        public Product HienThiDSSP(int maSp)
+        {
+            Product s = daoSP.HienThiDSSP(maSp);
+            return s;
         }
     }
 }

@@ -55,6 +55,7 @@
       <DependentUpon>CTDH.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO_DonHang.cs" />
+    <Compile Include="DAO_SanPham.cs" />
     <Compile Include="FDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
