@@ -15,7 +15,7 @@ namespace NW1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FSanPham());
+            Application.Run(new Form1());
         }
     }
 }

@@ -53,10 +53,10 @@ namespace NW1
 
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -112,6 +112,35 @@ namespace NW1
             dGNhanVien.DataSource = LayDSNhanVien();
         }
 
-        
+        private void btSua_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = cmd = new SqlCommand();
+            try
+            {
+                string query = string.Format(
+                        "set dateformat dmy update Employees set LastName={0}, Address={1}, HomePhone={2}, BirthDate={3} where EmployeeID={4}",
+                        txtHoten.Text, txtDiaChi.Text,txtDienThoai.Text, dtpNgaySinh.Value.ToShortDateString(), int.Parse(dGNhanVien.Rows[dGNhanVien.CurrentRow.Index].Cells["EmployeeID"].Value.ToString()));
+                cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception exxx)
+            {
+
+                MessageBox.Show(exxx.Message.ToString());
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            dGNhanVien.Columns.Clear();
+            dGNhanVien.DataSource = LayDSNhanVien();
+        }
+
+        private void btThoat_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
