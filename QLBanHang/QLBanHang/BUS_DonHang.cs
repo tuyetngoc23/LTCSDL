@@ -83,5 +83,11 @@ namespace QLBanHang
             Product s = daoSP.HienThiDSSP(maSp);
             return s;
         }
+
+        public ProductModel HienThiDSSP2(int maSp)
+        {
+            ProductModel s = daoSP.HienThiDSSP2(maSp);
+            return s;
+        }
     }
 }

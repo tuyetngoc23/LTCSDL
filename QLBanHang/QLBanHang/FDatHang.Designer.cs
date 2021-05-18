@@ -34,7 +34,11 @@
             this.dienThoaiLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numberSL = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbSP = new System.Windows.Forms.ComboBox();
+            this.txtLoaiSP = new System.Windows.Forms.TextBox();
+            this.txtNCC = new System.Windows.Forms.TextBox();
             this.txtMaDH = new System.Windows.Forms.TextBox();
             this.txtDonGia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,15 +61,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dGSP = new System.Windows.Forms.DataGridView();
             this.btDatHang = new System.Windows.Forms.Button();
-            this.cbSP = new System.Windows.Forms.ComboBox();
-            this.numberSL = new System.Windows.Forms.NumericUpDown();
-            this.txtNCC = new System.Windows.Forms.TextBox();
-            this.txtLoaiSP = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numberSL)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberSL)).BeginInit();
             this.SuspendLayout();
             // 
             // hoTenNhanVienLabel
@@ -121,12 +123,14 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbSP);
             this.groupBox1.Controls.Add(this.txtLoaiSP);
+            this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Controls.Add(this.txtNCC);
             this.groupBox1.Controls.Add(this.txtMaDH);
             this.groupBox1.Controls.Add(this.txtDonGia);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.hoTenNhanVienLabel);
             this.groupBox1.Controls.Add(this.ngaySinhLabel);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.diaChiLabel);
             this.groupBox1.Controls.Add(this.dienThoaiLabel);
             this.groupBox1.Location = new System.Drawing.Point(42, 70);
@@ -136,6 +140,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
+            // numberSL
+            // 
+            this.numberSL.Location = new System.Drawing.Point(445, 43);
+            this.numberSL.Name = "numberSL";
+            this.numberSL.Size = new System.Drawing.Size(73, 20);
+            this.numberSL.TabIndex = 15;
+            this.numberSL.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -144,6 +160,30 @@
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "Mã đơn hàng:";
+            // 
+            // cbSP
+            // 
+            this.cbSP.FormattingEnabled = true;
+            this.cbSP.Location = new System.Drawing.Point(124, 40);
+            this.cbSP.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSP.Name = "cbSP";
+            this.cbSP.Size = new System.Drawing.Size(200, 21);
+            this.cbSP.TabIndex = 14;
+            this.cbSP.SelectedIndexChanged += new System.EventHandler(this.cbSP_SelectedIndexChanged);
+            // 
+            // txtLoaiSP
+            // 
+            this.txtLoaiSP.Location = new System.Drawing.Point(122, 78);
+            this.txtLoaiSP.Name = "txtLoaiSP";
+            this.txtLoaiSP.Size = new System.Drawing.Size(202, 20);
+            this.txtLoaiSP.TabIndex = 13;
+            // 
+            // txtNCC
+            // 
+            this.txtNCC.Location = new System.Drawing.Point(462, 75);
+            this.txtNCC.Name = "txtNCC";
+            this.txtNCC.Size = new System.Drawing.Size(202, 20);
+            this.txtNCC.TabIndex = 13;
             // 
             // txtMaDH
             // 
@@ -295,6 +335,7 @@
             this.btThem.TabIndex = 0;
             this.btThem.Text = "Thêm";
             this.btThem.UseVisualStyleBackColor = true;
+            this.btThem.Click += new System.EventHandler(this.btThem_Click);
             // 
             // groupBox3
             // 
@@ -326,38 +367,21 @@
             this.btDatHang.Text = "Đặt Hàng";
             this.btDatHang.UseVisualStyleBackColor = true;
             // 
-            // cbSP
+            // label4
             // 
-            this.cbSP.FormattingEnabled = true;
-            this.cbSP.Location = new System.Drawing.Point(124, 40);
-            this.cbSP.Margin = new System.Windows.Forms.Padding(2);
-            this.cbSP.Name = "cbSP";
-            this.cbSP.Size = new System.Drawing.Size(200, 21);
-            this.cbSP.TabIndex = 14;
-            this.cbSP.SelectedIndexChanged += new System.EventHandler(this.cbSP_SelectedIndexChanged);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(354, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Discount";
             // 
-            // numberSL
+            // txtDiscount
             // 
-            this.numberSL.Location = new System.Drawing.Point(445, 43);
-            this.numberSL.Name = "numberSL";
-            this.numberSL.Size = new System.Drawing.Size(73, 20);
-            this.numberSL.TabIndex = 15;
-            // 
-            // txtNCC
-            // 
-            this.txtNCC.Enabled = false;
-            this.txtNCC.Location = new System.Drawing.Point(462, 75);
-            this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(202, 20);
-            this.txtNCC.TabIndex = 13;
-            // 
-            // txtLoaiSP
-            // 
-            this.txtLoaiSP.Enabled = false;
-            this.txtLoaiSP.Location = new System.Drawing.Point(122, 78);
-            this.txtLoaiSP.Name = "txtLoaiSP";
-            this.txtLoaiSP.Size = new System.Drawing.Size(202, 20);
-            this.txtLoaiSP.TabIndex = 13;
+            this.txtDiscount.Location = new System.Drawing.Point(461, 102);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(202, 20);
+            this.txtDiscount.TabIndex = 13;
             // 
             // FDatHang
             // 
@@ -374,10 +398,10 @@
             this.Load += new System.EventHandler(this.FDatHang_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numberSL)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberSL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +442,7 @@
         private System.Windows.Forms.NumericUpDown numberSL;
         private System.Windows.Forms.TextBox txtLoaiSP;
         private System.Windows.Forms.TextBox txtNCC;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private System.Windows.Forms.Label label4;
     }
 }
