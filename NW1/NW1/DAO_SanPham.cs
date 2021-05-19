@@ -62,6 +62,28 @@ namespace NW1
                 conn.Close();
             }
         }
-        
+
+        public void ThemSP(string tenSp, int sl, double gia, int maLSP, int maNCC)
+        {
+            SqlCommand cmd;
+            try
+            {
+                string query = string.Format("insert into Products(ProductName, UnitsInStock, UnitPrice,CategoryID, SupplierID) VALUES(N'{0}', {1},{2}, {3}, {4})",
+                        tenSp, sl, gia, maLSP, maNCC);
+                cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                //xu ly loi
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
     }
 }

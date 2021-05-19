@@ -33,5 +33,10 @@ namespace NW1
         {
             DaoSp.SuaSP(maSp, tenSp, sl, gia, maLSP,maNCC);
         }
+
+        public void ThemSP(string tenSp, int sl, double gia, int maLSP, int maNCC)
+        {
+            DaoSp.ThemSP(tenSp, sl, gia, maLSP, maNCC);
+        }
     }
 }

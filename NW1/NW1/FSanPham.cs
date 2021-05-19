@@ -49,10 +49,34 @@ namespace NW1
             maLSP = int.Parse(cbLoaiSP.SelectedValue.ToString());
             maNCC = int.Parse(cbNCC.SelectedValue.ToString());
 
-            busSp.SuaSP(maSp, txtTenSP.Text, int.Parse(txtSoLuong.Text), double.Parse(txtDonGia.Text), maLSP, maNCC);
+            try
+            {
+                busSp.SuaSP(maSp, txtTenSP.Text, int.Parse(txtSoLuong.Text), double.Parse(txtDonGia.Text), maLSP, maNCC);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
             dGSP.Columns.Clear();
             busSp.LayDSSP(dGSP);
         }
 
+        private void btThem_Click(object sender, EventArgs e)
+        {
+            int maLSP, maNCC;
+            maLSP = int.Parse(cbLoaiSP.SelectedValue.ToString());
+            maNCC = int.Parse(cbNCC.SelectedValue.ToString());
+
+            try
+            {
+                busSp.ThemSP(txtTenSP.Text, int.Parse(txtSoLuong.Text), double.Parse(txtDonGia.Text), maLSP, maNCC);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            dGSP.Columns.Clear();
+            busSp.LayDSSP(dGSP);
+        }
     }
 }

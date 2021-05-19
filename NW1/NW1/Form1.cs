@@ -118,8 +118,8 @@ namespace NW1
             try
             {
                 string query = string.Format(
-                        "set dateformat dmy update Employees set LastName={0}, Address={1}, HomePhone={2}, BirthDate={3} where EmployeeID={4}",
-                        txtHoten.Text, txtDiaChi.Text,txtDienThoai.Text, dtpNgaySinh.Value.ToShortDateString(), int.Parse(dGNhanVien.Rows[dGNhanVien.CurrentRow.Index].Cells["EmployeeID"].Value.ToString()));
+                        "set dateformat dmy update Employees set LastName='{0}',FirstName='{5}', Address='{1}', HomePhone={2}, BirthDate={3} where EmployeeID={4}",
+                        txtHoten.Text, txtDiaChi.Text,txtDienThoai.Text, dtpNgaySinh.Value.ToShortDateString(), int.Parse(dGNhanVien.Rows[dGNhanVien.CurrentRow.Index].Cells["EmployeeID"].Value.ToString()), txtHoten.Text);
                 cmd = new SqlCommand(query, conn);
                 cmd.Connection.Open();
 
