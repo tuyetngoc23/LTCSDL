@@ -38,5 +38,10 @@ namespace NW1
         {
             DaoSp.ThemSP(tenSp, sl, gia, maLSP, maNCC);
         }
+
+        public void XoaSP(String maSp)
+        {
+            DaoSp.XoaSanPham(maSp);
+        }
     }
 }

@@ -83,6 +83,30 @@ namespace NW1
                 conn.Close();
             }
         }
+        public void XoaSanPham(string maSp)
+        {
+
+            SqlCommand cmd = cmd = new SqlCommand();
+            try
+            {
+                string query = string.Format(
+                        "delete Products where ProductID=" + maSp);
+                cmd = new SqlCommand(query, conn);
+                cmd.Connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception exxx)
+            {
+
+                //
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+        }
 
 
     }

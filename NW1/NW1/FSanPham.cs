@@ -78,5 +78,20 @@ namespace NW1
             dGSP.Columns.Clear();
             busSp.LayDSSP(dGSP);
         }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                busSp.XoaSP(dGSP.Rows[dGSP.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            dGSP.Columns.Clear();
+            busSp.LayDSSP(dGSP);
+        }
+    
     }
 }
